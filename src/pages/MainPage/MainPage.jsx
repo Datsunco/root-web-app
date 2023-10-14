@@ -25,8 +25,7 @@ const MainPage = () => {
 
         //store.getSubscriptionsPlan()
 
-        tg.MainButton.color = 'AA1A17'
-        tg.MainButton.text = 'Оформить'
+        tg.MainButton.setParams({text :'Оформить', color: '#AA1A17'})
         if (store.userPlan != null) {
             tg.MainButton.show()
         } else {
