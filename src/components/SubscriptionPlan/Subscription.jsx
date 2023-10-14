@@ -8,7 +8,7 @@ const Subscription = ({ price, period, sale }) => {
     const { store } = useContext(Context)
 
     const handleOptionChange = (value) => {
-        tg.MainButton.enable()
+        tg.MainButton.setParams({text :'Оформить', color: '#AA1A17', is_visible: true, is_active: true})
         let buts = document.getElementsByClassName('radio-label')
         for(let i=0; i < buts.length; i++) {
             buts[i].style.boxShadow = "4px 4px 1px 1px #151C28";
