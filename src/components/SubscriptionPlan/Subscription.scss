@@ -9,8 +9,8 @@
     margin-bottom: 20px;
 
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -56,4 +56,27 @@
     line-height: 24px;
     /* 100% */
     letter-spacing: 1.2px;
+}
+
+.radio-button {
+    display: none;
+}
+
+.radio-label {
+    padding: 0;
+    width: 153.486px;
+    height: 92.994px;
+    border-radius: 10px;
+    background: #0D121A;
+    flex-direction: column;
+    box-shadow: 4px 4px 1px 1px #151C28;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-button:checked  .radio-label {
+    box-shadow: 4px 4px 1px 1px #aa1a17;
 }

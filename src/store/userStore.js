@@ -3,7 +3,9 @@ import userService from "../services/userService";
 
 export default class Store {
     user = {}
+
     isAuth = false;
+    userPlan = null
     isLoading = false;
     plans = [
         {
@@ -42,6 +44,10 @@ export default class Store {
 
     setAuth(bool) {
         this.isAuth = bool;
+    }
+
+    setPlan(price) {
+        this.userPlan = price;
     }
 
     setUser(user) {

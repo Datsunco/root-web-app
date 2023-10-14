@@ -41,3 +41,7 @@ body{
     line-height: normal;
     letter-spacing: 0.2px;
 }
+
+.radio-button:checked + .radio-label {
+    box-shadow: 4px 4px 1px 1px #aa1a17;
+}

@@ -1,18 +1,41 @@
-import React, {useContext} from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import { Context } from '../../main';
-import { observer} from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite';
 import './Subscription.scss'
 
-const Subscription = ({price, period ,sale}) => {
+const Subscription = ({ price, period, sale }) => {
     const { store } = useContext(Context)
+
+    const handleOptionChange = (value) => {
+        let buts = document.getElementsByClassName('radio-label')
+        for(let i=0; i < buts.length; i++) {
+            buts[i].style.boxShadow = "4px 4px 1px 1px #151C28";
+          }
+        //buts.style.boxShadow = '4px 4px 1px 1px #151C28'
+
+        store.setPlan(value)
+        
+        let but = document.getElementById(`${value}`);
+        but.style.boxShadow = '4px 4px 1px 1px #aa1a17';
+    };
+
+
     return (
-        <button className='subscription_card'>
+        <div>
+        <label className="radio-label" id={price} key={price}> 
+            <input
+                type="radio"
+                value={price}
+                name="myRadio"
+                onClick={(e) => handleOptionChange(price)} 
+                className="radio-button"
+            />
             <a className='month_text' >{period} месяц</a>
             <div className='line'></div>
             <a className='price_text'>{price} $</a>
             <a className='sale_text'>{sale} %</a>
-
-        </button>
+        </label>
+        </div>
     );
 };
 
