@@ -1,0 +1,89 @@
+.credintials_block {
+    background: #010A16;
+    width: 364px;
+    height: 535px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.login_text {
+    margin-top: 35px;
+    margin-bottom: 38px;
+    margin-left: -165px;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 120% */
+    letter-spacing: 0.2px;
+}
+
+.input_text {
+    color: var(--text-3, #727A84);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 13px;
+}
+
+.telegram_input {
+    border: none;
+    width: 300px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #0D121A;
+    color: #727A84;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.referal_code {
+    border: none;
+    width: 210px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #0D121A;
+    color: white;
+
+
+}
+
+.referal_code_button {
+    padding: 0;
+    font-size: 13px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: white;
+    width: 99px;
+    height: 32px;
+    background: #AA1A17;
+}
+
+
+form {
+    width: 310px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #0D121A;
+    /* This bit sets up the horizontal layout */
+    display: flex;
+    flex-direction: row;
+
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: #727A84;
+}

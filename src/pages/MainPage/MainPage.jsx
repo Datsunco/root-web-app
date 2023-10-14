@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Context } from '../../main';
 import { observer } from 'mobx-react-lite';
 import Header from '../../components/Header/Header';
@@ -7,6 +8,7 @@ import './MainPages.scss'
 
 const MainPage = () => {
     const { store } = useContext(Context)
+    const navigate = useNavigate();
     const tg = window.Telegram.WebApp;
 
     useEffect(() => {
@@ -18,7 +20,7 @@ const MainPage = () => {
 
         //store.getSubscriptionsPlan()
 
-        
+        tg.onEvent('mainButtonClicked', navigate('/login'))
         if (store.userPlan != null) {
             tg.MainButton.setParams({text :'Оформить', color: '#AA1A17', is_visible: true, is_active: true})
         } else {
