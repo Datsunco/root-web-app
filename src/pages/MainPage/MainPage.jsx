@@ -18,12 +18,11 @@ const MainPage = () => {
 
         //store.getSubscriptionsPlan()
 
-        tg.MainButton.setParams({text :'Оформить', color: '#AA1A17'})
-        console.log(store.userPlan)
+        tg.MainButton.setParams({text :'Оформить', color: '#AA1A17', is_visible: true, is_active: false})
         if (store.userPlan != null) {
-            tg.MainButton.show()
+            tg.MainButton.enable()
         } else {
-            tg.MainButton.hide()
+            tg.MainButton.disable()
         }
     }, [store])
 
