@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import './Subscription.scss'
 
 const Subscription = ({ price, period, sale }) => {
+    const tg = window.Telegram.WebApp;
     const { store } = useContext(Context)
 
     const handleOptionChange = (value) => {
