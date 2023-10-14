@@ -9,13 +9,6 @@ const MainPage = () => {
     const { store } = useContext(Context)
     const tg = window.Telegram.WebApp;
 
-    // const [selectedOption, setSelectedOption] = useState(null);
-
-    // const handleOptionChange = (value) => {
-    //     setSelectedOption(value);
-    //     console.log(value)
-    // };
-
     useEffect(() => {
         // if (localStorage.getItem('token')) {
         //     store.checkAuth()
@@ -26,6 +19,7 @@ const MainPage = () => {
         //store.getSubscriptionsPlan()
 
         tg.MainButton.setParams({text :'Оформить', color: '#AA1A17'})
+        console.log(store.userPlan)
         if (store.userPlan != null) {
             tg.MainButton.show()
         } else {
