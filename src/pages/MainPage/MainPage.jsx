@@ -31,8 +31,8 @@ const MainPage = () => {
         } else {
             tg.MainButton.setParams({text :'Оформить', color: '#151C28', is_visible: true, is_active: false})
         }
-        tg.onEvent('mainButtonClicked', mainButtonClicked())
-    }, [store])
+        tg.onEvent('mainButtonClicked', mainButtonClicked)
+    }, [store, mainButtonClicked])
 
     return (
         <div className='mainPage'>
