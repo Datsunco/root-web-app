@@ -26,14 +26,13 @@ const LoginPage = () => {
 
 
     return (
-        <div>
             <div className='credintials_block'>
                 <a className='login_text'>ОФОРМЛЕНИЕ</a>
                 <a className='input_text'> Telegram  <a className='selected'>*</a></a>
                 {/* tg.initDataUnsafe.user.id */}
                 <input className='telegram_input' placeholder={'dat'} readonly="readonly"></input>
                 <a className='input_text'>Реферальный код</a>
-                <form>
+                <form className='referal_input'>
 
                     {store.isReferal ? 
                         <input
@@ -51,9 +50,6 @@ const LoginPage = () => {
                         : <img src={buttonLogo}/>
                     }
                 </form>
-
-            </div>
-
         </div>
     );
 };

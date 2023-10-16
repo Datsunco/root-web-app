@@ -10,14 +10,13 @@ body{
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: left;
+    // align-items: center;
+    position: absolute;
 }
 
 .login_text {
     margin-top: 35px;
     margin-bottom: 38px;
-    margin-left: -165px;
     color: #FFF;
     font-size: 20px;
     font-style: normal;
@@ -25,6 +24,10 @@ body{
     line-height: 24px;
     /* 120% */
     letter-spacing: 0.2px;
+}
+
+.login_text, .input_text, .referal_input{
+    margin-left: 27px;;
 }
 
 .input_text {
@@ -47,7 +50,10 @@ body{
     color: #727A84;
     padding-left: 10px;
     margin-bottom: 20px;
+    margin-left: 27px;
 }
+
+
 
 .referal_code, .referal_code_wrong{
     border: none;
