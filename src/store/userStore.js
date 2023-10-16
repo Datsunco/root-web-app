@@ -53,8 +53,12 @@ export default class Store {
         this.isLoading = bool;
     }
 
-    setReferal(bool) {
+    setIsReferal(bool) {
         this.isReferal = bool;
+    }
+
+    setReferal(referal) {
+        this.referal = referal;
     }
 
     setSubscriptionsPlan(plans){
@@ -70,12 +74,12 @@ export default class Store {
         try {
             const response = await userService.getReferalCode(referal);
             if (response.status != 200){
-                this.setReferal(false)
+                this.setIsReferal(false)
             } else {
-                this.setReferal(true)
+                this.setIsReferal(true)
             }
         } catch (e) {
-            this.setReferal(false)
+            this.setIsReferal(false)
             console.log(e.response?.data?.message);
         } finally{
             this.setLoading(false)

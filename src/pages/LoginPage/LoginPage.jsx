@@ -8,7 +8,6 @@ import buttonLogo from '../../assets/button.svg'
 
 const LoginPage = () => {
     const { store } = useContext(Context)
-    const [referal, setReferal] = useState('')
     const tg = window.Telegram.WebApp;
 
     useEffect(() => {
@@ -28,20 +27,20 @@ const LoginPage = () => {
             <div className='credintials_block'>
                 <a className='login_text'>ОФОРМЛЕНИЕ</a>
                 <a className='input_text'> Telegram  <a className='selected'>*</a></a>
-                <input className='telegram_input' placeholder='datsunkun' readonly="readonly"></input>
+                <input className='telegram_input' placeholder={tg.initDataUnsafe.user.id} readonly="readonly"></input>
                 <a className='input_text'>Реферальный код</a>
                 <form>
 
                     {store.isReferal ? 
                         <input
                         className='referal_code'
-                        onChange={(e) => setReferal(e.target.value)}
-                        value={referal} />
+                        onChange={(e) => store.setReferal(e.target.value)}
+                        value={store.referal} />
                         :
                         <input
                         className='referal_code_wrong'
-                        onChange={(e) => setReferal(e.target.value)}
-                        value={referal} />
+                        onChange={(e) => store.setReferal(e.target.value)}
+                        value={store.referal} />
                     }
                     {!store.isLoading ?
                         <button className='referal_code_button' onClick={() => handleClick()}> Проверить</button>
