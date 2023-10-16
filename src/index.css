@@ -18,8 +18,7 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  height: 100vh;
+  /* place-items: center; */
 }
 
 h1 {
