@@ -8,6 +8,7 @@ import buttonLogo from '../../assets/button.svg'
 
 const LoginPage = () => {
     const { store } = useContext(Context)
+    const [referal, setReferal] = useState('')
     const tg = window.Telegram.WebApp;
 
     useEffect(() => {
@@ -19,15 +20,18 @@ const LoginPage = () => {
     }, [store])
 
     const handleClick = () => {
-        store.getReferalCode(referal)
+        store.getReferalCode()
+        console.log('test')
     }
+
 
     return (
         <div>
             <div className='credintials_block'>
                 <a className='login_text'>ОФОРМЛЕНИЕ</a>
                 <a className='input_text'> Telegram  <a className='selected'>*</a></a>
-                <input className='telegram_input' placeholder={tg.initDataUnsafe.user.id} readonly="readonly"></input>
+                {/* tg.initDataUnsafe.user.id */}
+                <input className='telegram_input' placeholder={'dat'} readonly="readonly"></input>
                 <a className='input_text'>Реферальный код</a>
                 <form>
 

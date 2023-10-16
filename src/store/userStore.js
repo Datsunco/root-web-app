@@ -69,15 +69,16 @@ export default class Store {
 
     
 
-    async getReferalCode(referal) {
+    async getReferalCode() {
         this.setLoading(true)
         try {
-            const response = await userService.getReferalCode(referal);
+            const response = await userService.getReferalCode(this.referal);
             if (response.status != 200){
                 this.setIsReferal(false)
             } else {
                 this.setIsReferal(true)
             }
+            console.log(response);
         } catch (e) {
             this.setIsReferal(false)
             console.log(e.response?.data?.message);
