@@ -11,8 +11,13 @@ export default class AuthService{
         
     }
 
-    static async getSubscriptionsPlan(catalogId){
+    static async getSubscriptionsPlan(){
         return $api.get(`/plans/usd-crypto/initial/available`)
+        
+    }
+
+    static async getReferalCode(referal){
+        return $api.get(`https://crypto.cmd-root.com/api/user/referral?referralCode=${referal}`)
         
     }
 

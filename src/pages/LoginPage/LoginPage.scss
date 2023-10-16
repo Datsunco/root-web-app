@@ -44,7 +44,7 @@
     margin-bottom: 20px;
 }
 
-.referal_code {
+.referal_code, .referal_code_wrong{
     border: none;
     width: 210px;
     height: 38px;
@@ -54,6 +54,10 @@
     color: white;
 
 
+}
+
+.referal_code_wrong{
+    color: red;
 }
 
 .referal_code_button {

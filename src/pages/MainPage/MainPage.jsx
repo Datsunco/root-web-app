@@ -11,6 +11,11 @@ const MainPage = () => {
     const navigate = useNavigate();
     const tg = window.Telegram.WebApp;
 
+    const mainButtonClicked = () => {
+        navigate('/login')
+    }
+
+
     useEffect(() => {
         // if (localStorage.getItem('token')) {
         //     store.checkAuth()
@@ -20,12 +25,13 @@ const MainPage = () => {
 
         //store.getSubscriptionsPlan()
 
-        tg.onEvent('mainButtonClicked', navigate('/login'))
+        
         if (store.userPlan != null) {
             tg.MainButton.setParams({text :'Оформить', color: '#AA1A17', is_visible: true, is_active: true})
         } else {
             tg.MainButton.setParams({text :'Оформить', color: '#151C28', is_visible: true, is_active: false})
         }
+        tg.onEvent('mainButtonClicked', mainButtonClicked())
     }, [store])
 
     return (

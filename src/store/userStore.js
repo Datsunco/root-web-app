@@ -4,9 +4,11 @@ import userService from "../services/userService";
 export default class Store {
     user = {}
 
-    isAuth = false;
-    userPlan = null
+    isReferal = true;
     isLoading = false;
+    referal = null
+    userPlan = null
+    
     plans = [
         {
             "id": 1,
@@ -42,24 +44,17 @@ export default class Store {
         makeAutoObservable(this);
     }
 
-    setAuth(bool) {
-        this.isAuth = bool;
-    }
 
     setPlan(price) {
         this.userPlan = price;
-    }
-
-    setUser(user) {
-        this.user = user;
     }
 
     setLoading(bool) {
         this.isLoading = bool;
     }
 
-    setParsed(bool) {
-        this.isParsed = bool;
+    setReferal(bool) {
+        this.isReferal = bool;
     }
 
     setSubscriptionsPlan(plans){
@@ -69,6 +64,23 @@ export default class Store {
 
 
     
+
+    async getReferalCode(referal) {
+        this.setLoading(true)
+        try {
+            const response = await userService.getReferalCode(referal);
+            if (response.status != 200){
+                this.setReferal(false)
+            } else {
+                this.setReferal(true)
+            }
+        } catch (e) {
+            this.setReferal(false)
+            console.log(e.response?.data?.message);
+        } finally{
+            this.setLoading(false)
+        }
+    }
 
     async getSubscriptionsPlan() {
         try {
