@@ -12,6 +12,13 @@ body{
     display: flex;
     flex-direction: column;
     // align-items: center;
+    
+}
+
+@media (max-height: 535px) {
+    .credintials_block {
+        height: 300px;
+    }
 }
 
 .login_text {
