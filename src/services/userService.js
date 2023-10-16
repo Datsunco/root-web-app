@@ -1,20 +1,17 @@
 import $api from "../http";
 
 export default class AuthService{
-    static async login(email, password){
-        return $api.post('/user/login', {email, password})
-        
-    }
-
-    static async parse(catalogId){
-        return $api.get(`/proxy/parse/${catalogId}`)
-        
-    }
 
     static async getSubscriptionsPlan(){
         return $api.get(`/plans/usd-crypto/initial/available`)
         
     }
+
+    static async getPaymentTokens(){
+        return $api.get(`/billing/internal/crypto/payment-tokens`)
+        
+    }
+    
 
     static async getReferalCode(referal){
         return $api.get(`https://crypto.cmd-root.com/api/user/referral?referralCode=${referal}`)
@@ -37,9 +34,5 @@ export default class AuthService{
 
     static async logout(){
         return $api.post('/user/logout')
-    }
-
-    static async order(){
-        return $api.post('/order/create')
     }
 }

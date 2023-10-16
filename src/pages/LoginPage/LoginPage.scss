@@ -4,19 +4,22 @@ body{
     max-height: 100vh;
 }
 
-.credintials_block {
+.credentials_block {
     background: #010A16;
     width: 364px;
     height: 535px;
+    border-radius: 20px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(114, 122, 132, 0.10);
+    background: radial-gradient(66.08% 57.19% at 64.55% 0%, rgba(170, 26, 23, 0.30) 0%, rgba(170, 26, 23, 0.00) 100%), #010A16;
     // align-items: center;
     
 }
 
 @media (max-height: 535px) {
-    .credintials_block {
+    .credentials_block {
         height: 300px;
     }
 }

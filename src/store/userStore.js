@@ -8,7 +8,7 @@ export default class Store {
     isLoading = false;
     referal = null
     userPlan = null
-    
+
     plans = [
         {
             "id": 1,
@@ -40,6 +40,101 @@ export default class Store {
         }
     ]
 
+    tokens = [
+        {
+            "id": 2,
+            "chain_name": "SOL",
+            "chain_img": null,
+            "wallet": "8R3V2yyoSg9PB3jJzVBefkoyp1pneYwKwNdjBcdCf6FJ",
+            "explorer": "https://solscan.io/account/",
+            "payment_tokens": [
+                {
+                    "id": "4",
+                    "token_name": "USDT",
+                    "token_address": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+                    "token_img": null,
+                    "chain_id": 2
+                },
+                {
+                    "id": "6",
+                    "token_name": "USDC",
+                    "token_address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "token_img": null,
+                    "chain_id": 2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "chain_name": "BSC",
+            "chain_img": null,
+            "wallet": "0x137FFb2424A057A5eEa636edbCf71e9b7C090f26",
+            "explorer": "https://bscscan.com/tx/",
+            "payment_tokens": [
+                {
+                    "id": "7",
+                    "token_name": "USDT",
+                    "token_address": "0x55d398326f99059fF775485246999027B3197955",
+                    "token_img": null,
+                    "chain_id": 3
+                },
+                {
+                    "id": "2",
+                    "token_name": "BUSD",
+                    "token_address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+                    "token_img": null,
+                    "chain_id": 3
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "chain_name": "ETH",
+            "chain_img": null,
+            "wallet": "0x137FFb2424A057A5eEa636edbCf71e9b7C090f26",
+            "explorer": "https://etherscan.io/tx/",
+            "payment_tokens": [
+                {
+                    "id": "1",
+                    "token_name": "USDC",
+                    "token_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                    "token_img": null,
+                    "chain_id": 1
+                },
+                {
+                    "id": "3",
+                    "token_name": "USDT",
+                    "token_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+                    "token_img": null,
+                    "chain_id": 1
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "chain_name": "MATIC",
+            "chain_img": null,
+            "wallet": "0x137FFb2424A057A5eEa636edbCf71e9b7C090f26",
+            "explorer": "https://solscan.io/account/",
+            "payment_tokens": [
+                {
+                    "id": "9",
+                    "token_name": "USDC",
+                    "token_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                    "token_img": null,
+                    "chain_id": 4
+                },
+                {
+                    "id": "8",
+                    "token_name": "USDT",
+                    "token_address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+                    "token_img": null,
+                    "chain_id": 4
+                }
+            ]
+        }
+    ]
+
     constructor() {
         makeAutoObservable(this);
     }
@@ -61,19 +156,19 @@ export default class Store {
         this.referal = referal;
     }
 
-    setSubscriptionsPlan(plans){
-        this.plans = devices?.data?.result?.dataList
+    setSubscriptionsPlan(plans) {
+        this.plans = plans?.data?.result?.dataList
     }
 
-
-
-    
+    setPaymentTokens(tokens){
+        this.tokens = this.plans = tokens?.data?.result?.dataList
+    }
 
     async getReferalCode() {
         this.setLoading(true)
         try {
             const response = await userService.getReferalCode(this.referal);
-            if (response.status != 200){
+            if (response.status != 200) {
                 this.setIsReferal(false)
             } else {
                 this.setIsReferal(true)
@@ -82,7 +177,7 @@ export default class Store {
         } catch (e) {
             this.setIsReferal(false)
             console.log(e.response?.data?.message);
-        } finally{
+        } finally {
             this.setLoading(false)
         }
     }
@@ -96,28 +191,12 @@ export default class Store {
         }
     }
 
-    async logout() {
+    async getPaymentTokens() {
         try {
-            const response = await AuthService.logout();
-            localStorage.removeItem('token');
-            this.setAuth(false);
-            this.setUser({});
+            const response = await userService.getSubscriptionsPlan();
+            this.setPaymentTokens(response)
         } catch (e) {
             console.log(e.response?.data?.message);
-        }
-    }
-
-    async parse(catalogId){
-        try{
-            const response = await ProxyService.parse(catalogId);
-            console.log(response?.data?.result?.dataList)
-            this.setDevices(response)
-        } catch(e){
-            console.log(e);
-            console.log(e.response?.data?.message);
-
-        }finally{
-            this.setParsed(true)
         }
     }
 

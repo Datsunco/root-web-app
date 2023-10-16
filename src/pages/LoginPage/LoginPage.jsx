@@ -11,12 +11,17 @@ const LoginPage = () => {
     const [referal, setReferal] = useState('')
     const tg = window.Telegram.WebApp;
 
+    const mainButtonClicked = () => {
+        navigate('/chekout')
+    }
+
     useEffect(() => {
         if (store.userPlan != null) {
             tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
         } else {
             tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#151C28', is_visible: true, is_active: false })
         }
+        tg.onEvent('mainButtonClicked', mainButtonClicked)
     }, [store])
 
     const handleClick = () => {
@@ -26,7 +31,7 @@ const LoginPage = () => {
 
 
     return (
-            <div className='credintials_block'>
+            <div className='credentials_block'>
                 <a className='login_text'>ОФОРМЛЕНИЕ</a>
                 <a className='input_text'> Telegram  <a className='selected'>*</a></a>
                 {/* tg.initDataUnsafe.user.id */}
