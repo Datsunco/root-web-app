@@ -11,7 +11,7 @@ const LoginPage = () => {
     const [referal, setReferal] = useState('')
     const tg = window.Telegram.WebApp;
 
-    const mainButtonClicked = () => {
+    const mainButtonClicked2 = () => {
         navigate('/chekout')
     }
 
@@ -19,8 +19,8 @@ const LoginPage = () => {
 
         tg.MainButton.setParams({ text: 'Перейти к оплате +', color: '#AA1A17', is_visible: true, is_active: true })
 
-        tg.onEvent('mainButtonClicked', mainButtonClicked)
-    }, [store, mainButtonClicked])
+        tg.onEvent('mainButtonClicked', mainButtonClicked2)
+    }, [store, mainButtonClicked2])
 
     const handleClick = () => {
         store.getReferalCode()
