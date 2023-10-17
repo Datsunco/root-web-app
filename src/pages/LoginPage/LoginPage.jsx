@@ -20,7 +20,7 @@ const LoginPage = () => {
         tg.MainButton.setParams({ text: 'Перейти к оплате +', color: '#AA1A17', is_visible: true, is_active: true })
 
         tg.onEvent('mainButtonClicked', mainButtonClicked)
-    }, [store])
+    }, [store, mainButtonClicked])
 
     const handleClick = () => {
         store.getReferalCode()
