@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const mainButtonClicked2 = () => {
         console.log(1)
-        navigate('/chekout')
+        navigate('/checkout')
     }
 
     useEffect(() => {
