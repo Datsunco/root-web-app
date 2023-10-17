@@ -8,6 +8,7 @@ export default class Store {
     isLoading = false;
     referal = null
     userPlan = null
+    userToken = null
 
     plans = [
         {
@@ -154,6 +155,10 @@ export default class Store {
 
     setReferal(referal) {
         this.referal = referal;
+    }
+
+    setToken(token){
+        this.userToken = token
     }
 
     setSubscriptionsPlan(plans) {

@@ -42,7 +42,7 @@ const MainPage = () => {
             <h3 className='main_choose_text'>ВЫБЕРИТЕ ПЛАН <a className='selected'>ПОДПИСКИ </a></h3>
             <div className='subscription_plans_block'>
                 {store.plans.map(plan =>
-                    <Subscription price={plan.price} period={plan.period} sale={plan.sale_percent} />
+                    <Subscription plan={plan} price={plan.price} period={plan.period} sale={plan.sale_percent} />
                 )}
             </div>
 

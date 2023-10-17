@@ -3,7 +3,7 @@ import { Context } from '../../main';
 import { observer } from 'mobx-react-lite';
 import './Subscription.scss'
 
-const Subscription = ({ price, period, sale }) => {
+const Subscription = ({plan, price, period, sale }) => {
     const tg = window.Telegram.WebApp;
     const { store } = useContext(Context)
 
@@ -13,9 +13,8 @@ const Subscription = ({ price, period, sale }) => {
         for(let i=0; i < buts.length; i++) {
             buts[i].style.boxShadow = "4px 4px 1px 1px #151C28";
           }
-        //buts.style.boxShadow = '4px 4px 1px 1px #151C28'
 
-        store.setPlan(value)
+        store.setPlan(plan)
         
         let but = document.getElementById(`${value}`);
         but.style.boxShadow = '4px 4px 1px 1px #aa1a17';
