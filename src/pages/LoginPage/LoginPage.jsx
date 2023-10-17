@@ -16,11 +16,9 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        if (store.userPlan != null) {
-            tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
-        } else {
-            tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#151C28', is_visible: true, is_active: false })
-        }
+
+        tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
+
         tg.onEvent('mainButtonClicked', mainButtonClicked)
     }, [store])
 
