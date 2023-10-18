@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../main';
 import Token from '../../components/Token/Token';
-import './PaymentPage.css'
+import Copy from '../../components/SuccessCopyMessage/Copy';
 import copyButton from '../../assets/copyButton.svg'
+import './PaymentPage.css'
 
 const PaymentPage = () => {
     const tg = window.Telegram.WebApp;
@@ -14,10 +15,11 @@ const PaymentPage = () => {
     const [time, setTime] = useState(15 * 60);
     const [address, setAddress] = useState(store?.userToken?.wallet);
     const [copyAddress, setCopyAddress] = useState(store?.userToken?.wallet);
+    const [copySuccess, setCopySuccess] = useState(false);
     const [hash, setHash] = useState('')
 
     const mainButtonClicked = () => {
-        navigate('/chekout')
+        navigate('/result')
     }
 
     const formatTime = (seconds) => {
@@ -41,6 +43,7 @@ const PaymentPage = () => {
         } else {
             tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#151C28', is_visible: true, is_active: false })
         }
+
         tg.onEvent('mainButtonClicked', mainButtonClicked)
         return () => {
             tg.offEvent('mainButtonClicked', mainButtonClicked)
@@ -49,13 +52,15 @@ const PaymentPage = () => {
     }, [store, mainButtonClicked, time])
 
 
-    const copyToClipboard = (e) => {
+    const copyToClipboard = (e) => { //Функция отрабатывающая копирования в буфер обмена
         e.preventDefault();
         // navigator.clipboard.writeText(copyAddress)
         inputRef.current.select();
         document.execCommand('copy');
         document.getSelection().removeAllRanges();
-        console.log('test')
+
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 900); 
     };
 
     const handleInput = (text2) => { //Функция отвечающая за обрбаботку адреса кошелька
@@ -96,15 +101,18 @@ const PaymentPage = () => {
                             value={address}
                             onChange={handleInput}
                             readOnly />
-                        <button onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
+                        <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
                     </form>
                     <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input'></input>
-
-                    
                 </div>
             </div>
             <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
+            {copySuccess ? 
+            <Copy/>
+            :
+            null
+            }
         </div>
     );
 };

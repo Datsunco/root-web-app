@@ -5,6 +5,7 @@ import bscLogo from '../../assets/bsc.svg'
 import solLogo from '../../assets/sol.svg'
 import ethLogo from '../../assets/eth.svg'
 import maticLogo from '../../assets/matic.svg'
+import copyButton from '../../assets/copyButton.svg'
 
 import './Token.scss'
 
