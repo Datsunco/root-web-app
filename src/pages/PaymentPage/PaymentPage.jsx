@@ -27,17 +27,17 @@ const PaymentPage = () => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
         return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-      };
+    };
 
     useEffect(() => {
         const countdown = setInterval(() => {
             if (time > 0) {
-              setTime(time - 1);
+                setTime(time - 1);
             } else {
-              clearInterval(countdown);
-              // Действие, которое нужно выполнить после завершения таймера
+                clearInterval(countdown);
+                // Действие, которое нужно выполнить после завершения таймера
             }
-          }, 1000); // Обновление каждую секунду
+        }, 1000); // Обновление каждую секунду
 
         if (store.hash != '' && store.userToken != null) {
             console.log(store.hash)
@@ -62,7 +62,7 @@ const PaymentPage = () => {
         document.getSelection().removeAllRanges();
 
         setCopySuccess(true);
-        setTimeout(() => setCopySuccess(false), 900); 
+        setTimeout(() => setCopySuccess(false), 900);
     };
 
     const handleInput = (text2) => { //Функция отвечающая за обрбаботку адреса кошелька
@@ -81,8 +81,8 @@ const PaymentPage = () => {
         <div className='checkout_block'>
             <div className='checkout_elements'>
                 <div className='checkout_header_block'>
-                <a className='checkout_header_text'>ОФОРМЛЕНИЕ</a>
-                <a className='checkout_header_timer'>{formatTime(time)}</a>
+                    <a className='checkout_header_text'>ОФОРМЛЕНИЕ</a>
+                    <a className='checkout_header_timer'>{formatTime(time)}</a>
                 </div>
                 <h6 className='main_checkout_text'>Перед оплатой внимательно ознакомьтесь с нашими
                     <a className='selected' href='https://crypto.cmd-root.com/terms'> Условиями </a>и
@@ -103,17 +103,17 @@ const PaymentPage = () => {
                             value={address}
                             onChange={handleInput}
                             readOnly />
-                        { copyAddress != null ? <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton}/> : null}
+                        {copyAddress != null ? <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} /> : null}
                     </form>
-                    <a className='chekout_input_text' >Ссылка на транзакцию/хеш</a>
+                    <a className='chekout_input_hash_text' >Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input' value={store.hash} onChange={(e) => store.setHash(e.target.value)}></input>
                 </div>
             </div>
             <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
             {copySuccess ? //Высплывающая надпись о копировании в буфер
-            <Copy/>
-            :
-            null
+                <Copy />
+                :
+                null
             }
         </div>
     );
