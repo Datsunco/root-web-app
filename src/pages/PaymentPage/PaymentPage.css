@@ -8,7 +8,7 @@
 
 }
 
-@media (max-height: 535px) {
+/* @media (max-height: 535px) {
     .checkout_block {
         max-height: 300px;
     }
@@ -24,7 +24,7 @@
     .chekout_input_text{
         display: none;
     }
-}
+} */
 
 .checkout_block {
     width: 364px;
