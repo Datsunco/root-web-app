@@ -18,7 +18,6 @@ const PaymentPage = () => {
     const [address, setAddress] = useState(store?.userToken?.wallet);
     const [copyAddress, setCopyAddress] = useState(store?.userToken?.wallet);
     const [copySuccess, setCopySuccess] = useState(false);
-    const [hash, setHash] = useState('')
 
     const mainButtonClicked = () => {
         navigate('/result')
@@ -40,7 +39,8 @@ const PaymentPage = () => {
             }
           }, 1000); // Обновление каждую секунду
 
-        if (hash != '' && store.userToken != null) {
+        if (store.hash != '' && store.userToken != null) {
+            console.log(store.hash)
             tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#AA1A17', is_visible: true, is_active: true })
         } else {
             tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#151C28', is_visible: true, is_active: false })
@@ -105,8 +105,8 @@ const PaymentPage = () => {
                             readOnly />
                         { copyAddress != null ? <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton}/> : null}
                     </form>
-                    <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
-                    <input className='chekout_link_input'></input>
+                    <a className='chekout_input_text' >Ссылка на транзакцию/хеш</a>
+                    <input className='chekout_link_input' value={store.hash} onChange={(e) => store.setHash(e.target.value)}></input>
                 </div>
             </div>
             <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
