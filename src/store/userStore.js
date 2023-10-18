@@ -9,6 +9,8 @@ export default class Store {
     referal = null
     userPlan = null
     userToken = null
+    hash = ''
+    key = 'HBYSLPPOOI321JKJ'
 
     plans = [
         {
@@ -155,6 +157,14 @@ export default class Store {
 
     setReferal(referal) {
         this.referal = referal;
+    }
+
+    setKey(key) {
+        this.key = key;
+    }
+
+    setHash(hash) {
+        this.hash = hash;
     }
 
     setToken(token){

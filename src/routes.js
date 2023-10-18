@@ -1,7 +1,8 @@
 import MainPage from "./pages/MainPage/MainPage"
 import LoginPage from "./pages/LoginPage/LoginPage"
 import PaymentPage from "./pages/PaymentPage/PaymentPage"
-import { MAINPAGE_ROUTE, LOGIN_ROUTE, CHECKOUT_ROUTE} from "./utils/constants.js"
+import ResultPage from "./pages/ResultPage/ResultPage"
+import { MAINPAGE_ROUTE, LOGIN_ROUTE, CHECKOUT_ROUTE, RESULT_ROUTE} from "./utils/constants.js"
 
 export const publicRoutes = [
     {
@@ -15,5 +16,9 @@ export const publicRoutes = [
     {
         path: CHECKOUT_ROUTE,
         Component: PaymentPage,
+    },
+    {
+        path: RESULT_ROUTE,
+        Component: ResultPage,
     }
 ]

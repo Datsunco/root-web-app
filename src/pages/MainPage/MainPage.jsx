@@ -8,6 +8,7 @@ import './MainPages.scss'
 
 const MainPage = () => {
     const { store } = useContext(Context)
+    
     const navigate = useNavigate();
     const tg = window.Telegram.WebApp;
 

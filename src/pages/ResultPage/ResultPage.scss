@@ -1,0 +1,129 @@
+.result_block {
+    width: 364px;
+    height: 535px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(114, 122, 132, 0.10);
+    background: radial-gradient(66.08% 57.19% at 64.55% 0%, rgba(170, 26, 23, 0.30) 0%, rgba(170, 26, 23, 0.00) 100%), #010A16;
+}
+
+.result_elements {
+    margin-top: 35px;
+    margin-left: 27px;
+
+}
+
+.ressult_header_block {
+    margin-bottom: 30px;
+}
+
+.result_header_main_block {
+    width: 329px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.result_header_main_text {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+}
+
+.result_header_logo {
+    margin-top: -15px;
+    margin-left: 120px;
+}
+
+.result_header_secondary_text {
+    color: var(--text-3, #727A84);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.result_input_block {
+    margin-top: 20px;
+}
+
+.result_input_text {
+    color: #727A84;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.result_key_form {
+    margin-bottom: 20px;
+    margin-top: 13px;
+    width: 310px;
+    height: 42px;
+    background: #0D121A ;
+}
+
+.result_key_input{
+    width: 260px;
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 14px;
+    padding-left: 10px;
+    margin-bottom: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #0D121A;
+    border: none;
+}
+
+.result_copy_button{
+    padding-top: 3px;
+    width: 35px;
+    height: 35px;
+}
+
+.result_instrulction_main_text {
+    color: #727A84;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.result_instrulction_secondary_block {
+    margin-top: 20px;
+    margin-bottom: 54px;
+    color: #727A84;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.result_instrulction_last_text {
+    color: #727A84;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}

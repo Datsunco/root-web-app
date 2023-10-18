@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../main';
 import Token from '../../components/Token/Token';
@@ -8,6 +9,7 @@ import './PaymentPage.css'
 
 const PaymentPage = () => {
     const tg = window.Telegram.WebApp;
+    const navigate = useNavigate();
 
     const inputRef = useRef(null);
     const { store } = useContext(Context)
@@ -101,14 +103,14 @@ const PaymentPage = () => {
                             value={address}
                             onChange={handleInput}
                             readOnly />
-                        <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
+                        { copyAddress != null ? <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton}/> : null}
                     </form>
                     <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input'></input>
                 </div>
             </div>
             <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
-            {copySuccess ? 
+            {copySuccess ? //Высплывающая надпись о копировании в буфер
             <Copy/>
             :
             null
