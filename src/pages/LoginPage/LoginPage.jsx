@@ -11,15 +11,18 @@ const LoginPage = () => {
     const { store } = useContext(Context)
     const tg = window.Telegram.WebApp;
 
-    const mainButtonClicked2 = () => {
+    const mainButtonClicked = () => {
         navigate('/checkout')
     }
 
     useEffect(() => {
         tg.MainButton.setParams({ text: 'Перейти к оплате +', color: '#AA1A17', is_visible: true, is_active: true })
-
-        tg.onEvent('mainButtonClicked', mainButtonClicked2)
-    }, [store, mainButtonClicked2])
+        tg.onEvent('mainButtonClicked', mainButtonClicked)
+        
+        return () => {
+            tg.offEvent('mainButtonClicked', mainButtonClicked)
+        }
+    }, [store, mainButtonClicked])
 
     const handleClick = () => {
         store.getReferalCode()

@@ -10,6 +10,8 @@ const PaymentPage = () => {
 
     const inputRef = useRef(null);
     const { store } = useContext(Context)
+
+    const [time, setTime] = useState(15 * 60);
     const [address, setAddress] = useState(store?.userToken?.wallet);
     const [copyAddress, setCopyAddress] = useState(store?.userToken?.wallet);
     const [hash, setHash] = useState('')
@@ -18,7 +20,21 @@ const PaymentPage = () => {
         navigate('/chekout')
     }
 
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+      };
+
     useEffect(() => {
+        const countdown = setInterval(() => {
+            if (time > 0) {
+              setTime(time - 1);
+            } else {
+              clearInterval(countdown);
+              // Действие, которое нужно выполнить после завершения таймера
+            }
+          }, 1000); // Обновление каждую секунду
 
         if (hash != '' && store.userToken != null) {
             tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#AA1A17', is_visible: true, is_active: true })
@@ -26,8 +42,11 @@ const PaymentPage = () => {
             tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#151C28', is_visible: true, is_active: false })
         }
         tg.onEvent('mainButtonClicked', mainButtonClicked)
-    }, [store, mainButtonClicked])
-
+        return () => {
+            tg.offEvent('mainButtonClicked', mainButtonClicked)
+            clearInterval(countdown);
+        }
+    }, [store, mainButtonClicked, time])
 
 
     const copyToClipboard = (e) => {
@@ -39,8 +58,8 @@ const PaymentPage = () => {
         console.log('test')
     };
 
-    const handleInput = (text2) => {
-        setCopyAddress(text2)
+    const handleInput = (text2) => { //Функция отвечающая за обрбаботку адреса кошелька
+        setCopyAddress(text2)        //(сокращет ее пополам и ставит в середине ...)
         const input = document.getElementById('adr_in')
 
         const textLength = text2.length;
@@ -54,7 +73,10 @@ const PaymentPage = () => {
     return (
         <div className='checkout_block'>
             <div className='checkout_elements'>
-                <a className='login_text'>ОФОРМЛЕНИЕ</a>
+                <div className='checkout_header_block'>
+                <a className='checkout_header_text'>ОФОРМЛЕНИЕ</a>
+                <a className='checkout_header_timer'>{formatTime(time)}</a>
+                </div>
                 <h6 className='main_checkout_text'>Перед оплатой внимательно ознакомьтесь с нашими
                     <a className='selected' href='https://crypto.cmd-root.com/terms'> Условиями </a>и
                     <a className='selected' href='https://crypto.cmd-root.com/payment_instruction'> Инструкцией по оплате </a>
@@ -79,9 +101,10 @@ const PaymentPage = () => {
                     <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input'></input>
 
-                    <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
+                    
                 </div>
             </div>
+            <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
         </div>
     );
 };
