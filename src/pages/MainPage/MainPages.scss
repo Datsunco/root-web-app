@@ -1,5 +1,6 @@
-body{
-    background:  #00060E;;
+body {
+    background: #00060E;
+    ;
 }
 
 .subscription_plans_block {
@@ -7,11 +8,26 @@ body{
     width: 335.593px;
     height: 213.509px;
     flex-shrink: 0;
-
+    margin-bottom: 35px;
 
 }
 
-.selected{
+.instruct {
+    width: 330px;
+    height: 27px;
+    flex-shrink: 0;
+    color: #727A84;
+
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    /* 133.333% */
+    letter-spacing: 0.12px;
+}
+
+.selected {
     color: #AA1A17;
 }
 
@@ -42,6 +58,6 @@ body{
     letter-spacing: 0.2px;
 }
 
-.radio-button:checked + .radio-label {
+.radio-button:checked+.radio-label {
     box-shadow: 4px 4px 1px 1px #aa1a17;
 }

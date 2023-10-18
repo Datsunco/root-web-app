@@ -25,16 +25,16 @@ const MainPage = () => {
 
         //store.getSubscriptionsPlan()
 
-        
+
         if (store.userPlan != null) {
-            tg.MainButton.setParams({text :'Оформить', color: '#AA1A17', is_visible: true, is_active: true})
+            tg.MainButton.setParams({ text: 'Оформить', color: '#AA1A17', is_visible: true, is_active: true })
         } else {
-            tg.MainButton.setParams({text :'Оформить', color: '#151C28', is_visible: true, is_active: false})
+            tg.MainButton.setParams({ text: 'Оформить', color: '#151C28', is_visible: true, is_active: false })
         }
         tg.onEvent('mainButtonClicked', mainButtonClicked)
         return () => {
-                 tg.offEvent('mainButtonClicked', mainButtonClicked)
-             }
+            tg.offEvent('mainButtonClicked', mainButtonClicked)
+        }
     }, [store, mainButtonClicked])
 
     return (
@@ -48,7 +48,11 @@ const MainPage = () => {
                     <Subscription plan={plan} price={plan.price} period={plan.period} sale={plan.sale_percent} />
                 )}
             </div>
-
+            <div className='instruct'>
+                    Перед покупкой убедитесь что вы прочитали<br />
+                    <a className='selected'>пользовательское соглащение</a> и
+                    <a className='selected'> инструкцию по оплате</a>
+            </div>
         </div>
     );
 };
