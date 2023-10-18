@@ -19,20 +19,23 @@ const PaymentPage = () => {
     }
 
     useEffect(() => {
-        
+
         if (hash != '' && store.userToken != null) {
-            tg.MainButton.setParams({text :'Проверить транзакцию', color: '#AA1A17', is_visible: true, is_active: true})
+            tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#AA1A17', is_visible: true, is_active: true })
         } else {
-            tg.MainButton.setParams({text :'Проверить транзакцию', color: '#151C28', is_visible: true, is_active: false})
+            tg.MainButton.setParams({ text: 'Проверить транзакцию', color: '#151C28', is_visible: true, is_active: false })
         }
         tg.onEvent('mainButtonClicked', mainButtonClicked)
     }, [store, mainButtonClicked])
 
-    
+
 
     const copyToClipboard = (e) => {
         e.preventDefault();
-        navigator.clipboard.writeText(copyAddress)
+        //navigator.clipboard.writeText(copyAddress)
+        inputRef.current.select();
+        document.execCommand('copy');
+        document.getSelection().removeAllRanges();
         console.log('test')
     };
 
@@ -72,7 +75,7 @@ const PaymentPage = () => {
                             onChange={handleInput}
                             ref={inputRef}
                             readOnly />
-                    <button onClick={(e) =>copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
+                        <button onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
                     </form>
                     <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input'></input>
