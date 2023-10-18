@@ -32,7 +32,7 @@ const PaymentPage = () => {
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(copyAddress)
-        
+        console.log('test')
     };
 
     const handleInput = (text2) => {
