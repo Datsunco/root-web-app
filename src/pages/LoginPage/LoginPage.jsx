@@ -7,21 +7,18 @@ import buttonLogo from '../../assets/button.svg'
 
 
 const LoginPage = () => {
+    const navigate = useNavigate();
     const { store } = useContext(Context)
-    const [referal, setReferal] = useState('')
     const tg = window.Telegram.WebApp;
 
     const mainButtonClicked2 = () => {
-        console.log(1)
         navigate('/checkout')
     }
 
     useEffect(() => {
-
         tg.MainButton.setParams({ text: 'Перейти к оплате +', color: '#AA1A17', is_visible: true, is_active: true })
 
         tg.onEvent('mainButtonClicked', mainButtonClicked2)
-        console.log(2)
     }, [store, mainButtonClicked2])
 
     const handleClick = () => {
