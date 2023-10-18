@@ -88,3 +88,7 @@
     height: 42px;
     background: #0D121A ;
 }
+
+.hidden_input{
+    display: block;
+}

@@ -32,7 +32,7 @@ const PaymentPage = () => {
 
     const copyToClipboard = (e) => {
         e.preventDefault();
-        //navigator.clipboard.writeText(copyAddress)
+        // navigator.clipboard.writeText(copyAddress)
         inputRef.current.select();
         document.execCommand('copy');
         document.getSelection().removeAllRanges();
@@ -73,12 +73,13 @@ const PaymentPage = () => {
                             id='adr_in'
                             value={address}
                             onChange={handleInput}
-                            ref={inputRef}
                             readOnly />
                         <button onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
                     </form>
                     <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input'></input>
+
+                    <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
                 </div>
             </div>
         </div>
