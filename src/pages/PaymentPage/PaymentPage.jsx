@@ -30,7 +30,8 @@ const PaymentPage = () => {
 
     
 
-    const copyToClipboard = () => {
+    const copyToClipboard = (e) => {
+        e.preventDefault();
         navigator.clipboard.writeText(copyAddress)
         console.log('test')
     };
@@ -71,7 +72,7 @@ const PaymentPage = () => {
                             onChange={handleInput}
                             ref={inputRef}
                             readOnly />
-                    <button onClick={() =>copyToClipboard()} className='checkout_copy_button' src={copyButton} />
+                    <button onClick={(e) =>copyToClipboard(e)} className='checkout_copy_button' src={copyButton} />
                     </form>
                     <a className='chekout_input_text' value={hash} onChange={(e) => setHash(e.target.value)}>Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input'></input>
