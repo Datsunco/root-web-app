@@ -52,13 +52,13 @@ body{
 
 .telegram_input {
     border: none;
-    width: 300px;
+    width: 297px;
     height: 40px;
     flex-shrink: 0;
     border-radius: 8px;
     background: #0D121A;
     color: #727A84;
-    padding-left: 10px;
+    padding-left: 13px;
     margin-bottom: 20px;
     margin-left: 27px;
 }
@@ -66,8 +66,9 @@ body{
 
 
 .referal_code, .referal_code_wrong{
+    padding-left: 16px;
     border: none;
-    width: 210px;
+    width: 190px;
     height: 38px;
     flex-shrink: 0;
     border-radius: 8px;
@@ -82,7 +83,9 @@ body{
 }
 
 .referal_code_button {
-    padding: 0;
+    display: flex;
+    padding: 5px;
+    padding-left: 14px;
     font-size: 13px;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -90,6 +93,11 @@ body{
     width: 99px;
     height: 32px;
     background: #AA1A17;
+}
+
+.referal_code_animation{
+    background-size: cover;
+    width: 99px;
 }
 
 

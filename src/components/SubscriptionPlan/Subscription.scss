@@ -54,11 +54,38 @@
     letter-spacing: 1.2px;
 }
 
+.sale_text {
+    color: #8B929B;
+
+    font-family: Helvetica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.16px;
+}
+
+.price_without_sale_text {
+    color: #AA1A17;
+
+    font-family: Helvetica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.16px;
+    text-decoration-line:line-through;
+}
+
 .radio-button {
     display: none;
 }
 
+
 .radio-label {
+    transition: all 0.5s;
     padding: 0;
     width: 153.486px;
     height: 92.994px;
@@ -71,4 +98,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.radio-label.clicked{
+    transform: translateY(2px);
+}
+
+.radio-label.unclicked{
+    transform: translateY(0px);
 }

@@ -16,7 +16,7 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        tg.MainButton.setParams({ text: 'Перейти к оплате +', color: '#AA1A17', is_visible: true, is_active: true })
+        tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
         tg.onEvent('mainButtonClicked', mainButtonClicked)
         
         return () => {
@@ -35,7 +35,7 @@ const LoginPage = () => {
                 <a className='login_text'>ОФОРМЛЕНИЕ</a>
                 <a className='input_text'> Telegram  <a className='selected'>*</a></a>
                 {/* tg.initDataUnsafe.user.id */}
-                <input className='telegram_input' placeholder={'dat'} readonly="readonly"></input>
+                <input className='telegram_input' placeholder={tg?.initDataUnsafe?.user?.id || 'dat'} readonly="readonly"></input>
                 <a className='input_text'>Реферальный код</a>
                 <form className='referal_input'>
 
@@ -52,7 +52,7 @@ const LoginPage = () => {
                     }
                     {!store.isLoading ?
                         <button className='referal_code_button' onClick={() => handleClick()}> Проверить</button>
-                        : <img src={buttonLogo}/>
+                        : <img className='referal_code_animation'src={buttonLogo}/>
                     }
                 </form>
         </div>

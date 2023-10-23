@@ -5,6 +5,7 @@ import { Context } from '../../main';
 import Token from '../../components/Token/Token';
 import Copy from '../../components/SuccessCopyMessage/Copy';
 import copyButton from '../../assets/copyButton.svg'
+import copyButtonClicked from '../../assets/copyButtonClicked.svg'
 import './PaymentPage.css'
 
 const PaymentPage = () => {
@@ -62,7 +63,7 @@ const PaymentPage = () => {
         document.getSelection().removeAllRanges();
 
         setCopySuccess(true);
-        setTimeout(() => setCopySuccess(false), 900);
+        setTimeout(() => setCopySuccess(false), 150);
     };
 
     const handleInput = (text2) => { //Функция отвечающая за обрбаботку адреса кошелька
@@ -96,25 +97,31 @@ const PaymentPage = () => {
                     )}
                 </div>
                 <div className='checkout_inputs_block'>
-                    <a className='chekout_input_text'>Отправьте 400 USDT$ или USDC$ на адрес:</a>
+                    <a className='chekout_input_text'>Отправьте {store.userPlan.price} USDT$ или USDC$ на адрес:</a>
                     <form className='checkout_address_form'>
                         <input className='chekout_address_input'
                             id='adr_in'
                             value={address}
                             onChange={handleInput}
                             readOnly />
-                        {copyAddress != null ? <img onClick={(e) => copyToClipboard(e)} className='checkout_copy_button' src={copyButton} /> : null}
+                        {copyAddress != null ?
+                            !copySuccess ?
+                                <img onClick={(e) => copyToClipboard(e)} src={copyButton} className='checkout_copy_button' />
+                                :
+                                <img onClick={(e) => copyToClipboard(e)} src={copyButtonClicked} className='checkout_copy_button' />
+                            :
+                            null}
                     </form>
                     <a className='chekout_input_hash_text' >Ссылка на транзакцию/хеш</a>
                     <input className='chekout_link_input' value={store.hash} onChange={(e) => store.setHash(e.target.value)}></input>
                 </div>
             </div>
             <input className='hidden_input' ref={inputRef} value={copyAddress}></input>
-            {copySuccess ? //Высплывающая надпись о копировании в буфер
+            {/* {copySuccess ? //Высплывающая надпись о копировании в буфер
                 <Copy />
                 :
                 null
-            }
+            } */}
         </div>
     );
 };

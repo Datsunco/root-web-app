@@ -7,7 +7,13 @@ export default class Store {
     isReferal = true;
     isLoading = false;
     referal = null
-    userPlan = null
+    userPlan = {
+        "id": 1,
+        "period": 1,
+        "price": 70.00,
+        "sale_percent": 0,
+        "price_without_sale": 70
+    }
     userToken = null
     hash = ''
     key = 'HBYSLPPOOI321JKJ'
