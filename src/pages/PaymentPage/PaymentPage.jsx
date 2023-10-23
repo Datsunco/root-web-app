@@ -97,7 +97,7 @@ const PaymentPage = () => {
                     )}
                 </div>
                 <div className='checkout_inputs_block'>
-                    <a className='chekout_input_text'>Отправьте {store.userPlan.price} USDT$ или USDC$ на адрес:</a>
+                    <a className='chekout_input_text'>Отправьте <a className='selected'>{store.userPlan.price} USDT$</a> или <a className='selected'>USDC$</a> на адрес:</a>
                     <form className='checkout_address_form'>
                         <input className='chekout_address_input'
                             id='adr_in'
