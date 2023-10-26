@@ -95,6 +95,10 @@ body{
     background: #AA1A17;
 }
 
+.referal_code_button:disabled {
+    background: grey;
+}
+
 .referal_code_animation{
     background-size: cover;
     width: 99px;

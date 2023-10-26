@@ -51,8 +51,8 @@ const MainPage = () => {
             </div>
             <div className='instruct'>
                     Перед покупкой убедитесь что вы прочитали<br />
-                    <a className='selected'>пользовательское соглащение</a> и
-                    <a className='selected'> инструкцию по оплате</a>
+                    <a className='selected' href='https://crypto.cmd-root.com/terms'>пользовательское соглащение</a> и
+                    <a className='selected' href='https://crypto.cmd-root.com/payment_instruction'> инструкцию по оплате</a>
             </div>
         </div>
     );

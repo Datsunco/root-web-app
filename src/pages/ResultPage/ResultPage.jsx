@@ -4,6 +4,7 @@ import { Context } from '../../main';
 import { observer } from 'mobx-react-lite';
 import rootLogo from '../../assets/rootLogo.svg'
 import copyButton from '../../assets/copyButton.svg'
+import copyButtonClicked from '../../assets/copyButtonClicked.svg'
 import './ResultPage.scss'
 
 const ResultPage = () => {
@@ -19,7 +20,7 @@ const ResultPage = () => {
         document.getSelection().removeAllRanges();
 
         setCopySuccess(true);
-        setTimeout(() => setCopySuccess(false), 900); 
+        setTimeout(() => setCopySuccess(false), 150);
     };
 
     return (
@@ -42,33 +43,35 @@ const ResultPage = () => {
                             value={store.key}
                             ref={inputRef}
                             readOnly />
-                        <img className='result_copy_button'
-                            onClick={(e) => copyToClipboard(e)}
-                            src={copyButton} />
+                        {!copySuccess ?
+                            <img onClick={(e) => copyToClipboard(e)} src={copyButton} className='result_copy_button' />
+                            :
+                            <img onClick={(e) => copyToClipboard(e)} src={copyButtonClicked} className='checkout_copy_button' />
+                        }
                     </form>
                 </div>
                 <div className='result_instruction_block'>
                     <a className='result_instrulction_main_text'>АКТИВАЦИЯ</a>
                     <div className='result_instrulction_secondary_block'>
                         <a className='result_instrulction_secondary_text'>
-                            - Перейдите в <a className='selected'> Дешборд</a> 
-                            и залогиньтесь с<br/> вашим Discord аккаунтом<br/>
+                            - Перейдите в <a className='selected' href='https://crypto.cmd-root.com/dashboard'> Дешборд</a>
+                            и залогиньтесь с<br /> вашим Discord аккаунтом<br />
                         </a>
                         <a className='result_instrulction_secondary_text'>
-                            - Введите ваш ключ: {store.key}<br/>
+                            - Введите ваш ключ: {store.key}<br />
                         </a>
                         <a className='result_instrulction_secondary_text'>
                             - Перейдите в дискорд и вы увидите что были добавлены на сервер
-                            <a className='selected'> c:rypto</a><br/>
+                            <a className='selected'> c:rypto</a><br />
                         </a>
                         <a className='result_instrulction_secondary_text'>
-                            - Ознакомьтесь с каналом <a className='selected'>#starting-info</a>,<br/>
-                            изучайте и наслаждайтесь<br/>
+                            - Ознакомьтесь с каналом <a className='selected'>#starting-info</a>,<br />
+                            изучайте и наслаждайтесь<br />
                         </a>
                     </div>
                     <a className='result_instrulction_last_text'>
                         Мы также отправили инструкции по активации и ваш лицензионный ключ вам в
-                         Telegram боте.
+                        Telegram боте.
                     </a>
                 </div>
             </div>

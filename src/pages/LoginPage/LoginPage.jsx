@@ -51,7 +51,7 @@ const LoginPage = () => {
                         value={store.referal} />
                     }
                     {!store.isLoading ?
-                        <button className='referal_code_button' onClick={() => handleClick()}> Проверить</button>
+                        <button className='referal_code_button' disabled={store.referal != '' ? false : true} onClick={() => handleClick()}> Проверить</button>
                         : <img className='referal_code_animation'src={buttonLogo}/>
                     }
                 </form>
