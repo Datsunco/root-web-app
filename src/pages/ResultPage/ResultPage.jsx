@@ -54,7 +54,7 @@ const ResultPage = () => {
                     <a className='result_instrulction_main_text'>АКТИВАЦИЯ</a>
                     <div className='result_instrulction_secondary_block'>
                         <a className='result_instrulction_secondary_text'>
-                            - Перейдите в <a className='selected' href='https://crypto.cmd-root.com/dashboard'> Дешборд</a>
+                            - Перейдите в <a className='selected' href='https://crypto.cmd-root.com/dashboard'> Дешборд </a>
                             и залогиньтесь с<br /> вашим Discord аккаунтом<br />
                         </a>
                         <a className='result_instrulction_secondary_text'>

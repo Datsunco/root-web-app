@@ -7,7 +7,7 @@ export default class Store {
     isReferal = true;
     isLoading = false;
     referal = null
-    userPlan = {}
+    userPlan = null
     userToken = null
     hash = ''
     key = 'HBYSLPPOOI321JKJ'
