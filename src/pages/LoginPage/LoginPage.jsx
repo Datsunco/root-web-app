@@ -16,6 +16,7 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
+        console.log(store.referal)
         tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
         tg.onEvent('mainButtonClicked', mainButtonClicked)
         
@@ -51,7 +52,7 @@ const LoginPage = () => {
                         value={store.referal} />
                     }
                     {!store.isLoading ?
-                        <button className='referal_code_button' disabled={store.referal != '' ? false : true} onClick={() => handleClick()}> Проверить</button>
+                        <button className='referal_code_button' disabled={store.referal != null && store.referal != '' ? false : true} onClick={() => handleClick()}> Проверить</button>
                         : <img className='referal_code_animation'src={buttonLogo}/>
                     }
                 </form>
