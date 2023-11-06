@@ -24,7 +24,7 @@ const MainPage = () => {
         //     cart.getDevices()
         // }
 
-        //store.getSubscriptionsPlan()
+        store.getSubscriptionsPlan()
 
 
         if (store.userPlan != null) {
