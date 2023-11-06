@@ -36,7 +36,7 @@ const MainPage = () => {
         return () => {
             tg.offEvent('mainButtonClicked', mainButtonClicked)
         }
-    }, [store, mainButtonClicked])
+    }, [mainButtonClicked])
 
     return (
         <div className='mainPage'>
