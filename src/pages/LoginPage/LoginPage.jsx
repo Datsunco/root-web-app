@@ -16,7 +16,6 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        console.log(store.referal)
         tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
         tg.onEvent('mainButtonClicked', mainButtonClicked)
         

@@ -215,4 +215,14 @@ export default class Store {
         }
     }
 
+    async postReservation(email) {
+        try {
+            const response = await userService.postReservation(email, this.userPlan.id, this.referal);
+            this.setPaymentTokens(response)
+        } catch (e) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
+
 }
