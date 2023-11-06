@@ -19,7 +19,7 @@ const MainPage = () => {
 
     useEffect(() => {
         store.getSubscriptionsPlan()
-    })
+    }, [])
 
     useEffect(() => {
         if (store.userPlan != null) {
