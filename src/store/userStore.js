@@ -201,7 +201,7 @@ export default class Store {
         try {
             const response = await userService.getSubscriptionsPlan();
             console.log(response)
-            this.setSubscriptionsPlan(response)
+            this.setSubscriptionsPlan(response.data)
         } catch (e) {
             console.log(e.response?.data?.message);
         }
