@@ -8,7 +8,7 @@ import './MainPages.scss'
 
 const MainPage = () => {
     const { store } = useContext(Context)
-    
+
     const navigate = useNavigate();
     const tg = window.Telegram.WebApp;
 
@@ -18,15 +18,10 @@ const MainPage = () => {
 
 
     useEffect(() => {
-        // if (localStorage.getItem('token')) {
-        //     store.checkAuth()
-        //     favorites.getFavorites()
-        //     cart.getDevices()
-        // }
-
         store.getSubscriptionsPlan()
+    })
 
-
+    useEffect(() => {
         if (store.userPlan != null) {
             tg.MainButton.setParams({ text: 'Оформить', color: '#AA1A17', is_visible: true, is_active: true })
         } else {
@@ -50,9 +45,9 @@ const MainPage = () => {
                 )}
             </div>
             <div className='instruct'>
-                    Перед покупкой убедитесь что вы прочитали<br />
-                    <a className='selected' href='https://crypto.cmd-root.com/terms'>пользовательское соглащение</a> и
-                    <a className='selected' href='https://crypto.cmd-root.com/payment_instruction'> инструкцию по оплате</a>
+                Перед покупкой убедитесь что вы прочитали<br />
+                <a className='selected' href='https://crypto.cmd-root.com/terms'>пользовательское соглащение</a> и
+                <a className='selected' href='https://crypto.cmd-root.com/payment_instruction'> инструкцию по оплате</a>
             </div>
         </div>
     );

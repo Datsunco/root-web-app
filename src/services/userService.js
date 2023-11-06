@@ -5,7 +5,7 @@ export default class AuthService{
 
     static async getSubscriptionsPlan(){
         //return $api.get(`/plans/usd-crypto/initial/available`)
-        return await axios.get('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available')
+        return axios.get('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available')
         
     }
 
