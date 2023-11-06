@@ -3,7 +3,11 @@ import $api from "../http";
 export default class AuthService{
 
     static async getSubscriptionsPlan(){
-        return $api.get(`/plans/usd-crypto/initial/available`)
+        //return $api.get(`/plans/usd-crypto/initial/available`)
+        return await axios
+            .post('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available',
+            { withCredentials: true }
+        )
         
     }
 
