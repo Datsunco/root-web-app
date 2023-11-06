@@ -218,8 +218,7 @@ export default class Store {
     async postReservation(email) {
         try {
             console.log(this.userPlan.id)
-            let tmpStr = String(email)
-            const response = await userService.postReservation(tmpStr, this.userPlan.id, this.referal);
+            const response = await userService.postReservation(String(email), this.userPlan.id, String(this.referal));
             console.log(response)
             localStorage.setItem('token', response.data.accessToken);
         } catch (e) {
