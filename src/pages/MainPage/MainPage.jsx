@@ -13,9 +13,7 @@ const MainPage = () => {
     const tg = window.Telegram.WebApp;
 
     const mainButtonClicked = () => {
-        if (localStorage.getItem('token')) {
         navigate('/login')
-        }
     }
 
 
