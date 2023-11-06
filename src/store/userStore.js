@@ -172,7 +172,7 @@ export default class Store {
     }
 
     setSubscriptionsPlan(plans) {
-        this.plans = plans?.data?.result?.dataList
+        this.plans = plans?.data
     }
 
     setPaymentTokens(tokens){
@@ -200,8 +200,8 @@ export default class Store {
     async getSubscriptionsPlan() {
         try {
             const response = await userService.getSubscriptionsPlan();
-            console.log(response.data)
-            this.setSubscriptionsPlan(response.data)
+            console.log(response)
+            this.setSubscriptionsPlan(response)
         } catch (e) {
             console.log(e.response?.data?.message);
         }
