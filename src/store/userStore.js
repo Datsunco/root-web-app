@@ -218,7 +218,8 @@ export default class Store {
     async postReservation(email) {
         try {
             const response = await userService.postReservation(email, this.userPlan.id, this.referal);
-            this.setPaymentTokens(response)
+            console.log(response)
+            localStorage.setItem('token', response.data.accessToken);
         } catch (e) {
             console.log(e.response?.data?.message);
         }
