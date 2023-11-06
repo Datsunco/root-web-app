@@ -12,6 +12,7 @@ const LoginPage = () => {
     const tg = window.Telegram.WebApp;
 
     const mainButtonClicked = () => {
+        store.postReservation(tg?.initDataUnsafe?.user?.id)
         if (localStorage.getItem('token')) {
             navigate('/checkout')
         }
