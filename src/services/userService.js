@@ -20,9 +20,9 @@ export default class AuthService{
         
     }
 
-    static async postReservation(email, id, referal){
+    static async postReservation(email, id, referral_code){
 
-        return $api.post(`https://crypto.cmd-root.com/api/checkout/generate`, { email, id})
+        return $api.post(`https://crypto.cmd-root.com/api/checkout/generate`, { email, id, referral_code})
         
     }
 }
