@@ -219,7 +219,7 @@ export default class Store {
         try {
             console.log(this.userPlan.id)
             const response = await userService.postReservation(String(email), this.userPlan.id, String(this.referal));
-            localStorage.setItem('token', response.data.checkout-uid);
+            localStorage.setItem('token', response?.data?.checkout-uid);
         } catch (e) {
             console.log(e.response?.data?.message);
         }
