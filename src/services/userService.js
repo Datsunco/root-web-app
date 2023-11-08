@@ -37,6 +37,6 @@ export default class AuthService {
 
     static async getChekoutDetails() {
         //return axios.get(`https://crypto.cmd-root.com/api/checkout/details`, {withCredentials: true})
-        return $api.get(`/checkout/details`)
+        return $api.get(`/checkout/details`, {withCredentials: true})
     }
 }

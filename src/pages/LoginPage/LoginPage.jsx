@@ -13,6 +13,7 @@ const LoginPage = () => {
 
     const mainButtonClicked = () => {
         store.postReservation("736466798")
+        store.getChekoutDetails()
         // if (localStorage.getItem('checkout-uid')) {
             navigate('/checkout')
             console.log('test0')
