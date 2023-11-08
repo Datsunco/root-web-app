@@ -41,9 +41,8 @@ const LoginPage = () => {
 
     return (
         <div className='credentials_block'>
-            <a className='login_text'>ОФОРМЛЕНИЕ</a>
+            <a className='login_text' onClick={mainButtonClicked}>ОФОРМЛЕНИЕ</a>
             <a className='input_text'> Telegram  <a className='selected'>*</a></a>
-            {/* tg.initDataUnsafe.user.id */}
             <input className='telegram_input' placeholder={tg?.initDataUnsafe?.user?.id || 'dat'} readonly="readonly"></input>
             <a className='input_text'>Реферальный код</a>
             <form className='referal_input'>
