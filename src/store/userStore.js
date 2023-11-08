@@ -219,7 +219,6 @@ export default class Store {
         try {
             console.log(this.userPlan.id)
             const response = await userService.postReservation(String(email), this.userPlan.id, String(this.referal));
-            console.log(localStorage.getItem('checkout-uid'))
             localStorage.setItem('token', response.data.checkout-uid);
         } catch (e) {
             console.log(e.response?.data?.message);
@@ -229,7 +228,6 @@ export default class Store {
     async getChekoutDetails(email) {
         try {
             const response = await userService.getChekoutDetails(String(email), this.userPlan.id, String(this.referal));
-            console.log(response)
         } catch (e) {
             console.log(e.response?.data?.message);
         }

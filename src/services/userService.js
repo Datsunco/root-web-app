@@ -4,8 +4,8 @@ import axios from "axios";
 export default class AuthService {
 
     static async getSubscriptionsPlan() {
-        //return $api.get(`/plans/usd-crypto/initial/available`)
-        return axios.get('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available')
+        return $api.get(`/plans/usd-crypto/initial/available`)
+        //return axios.get('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available')
 
     }
 
@@ -16,7 +16,7 @@ export default class AuthService {
 
     static async getReferalCode(referal) {
         //return $api.get(`https://crypto.cmd-root.com/api/user/referral?referralCode=${referal}`)
-        return axios.get(`https://crypto.cmd-root.com/api/user/referral?referralCode=${referal}`)
+        return $api.get(`/user/referral?referralCode=${referal}`)
 
     }
 
