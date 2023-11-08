@@ -25,6 +25,10 @@ const PaymentPage = () => {
         navigate('/result')
     }
 
+    const check = () => {
+        store.getChekoutDetails()
+    }
+
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
@@ -33,7 +37,7 @@ const PaymentPage = () => {
 
     useEffect(() => {
         store.getPaymentTokens()
-        store.getChekoutDetails()
+        //store.getChekoutDetails()
     }, [])
 
     useEffect(() => {
@@ -89,7 +93,7 @@ const PaymentPage = () => {
         <div className='checkout_block'>
             <div className='checkout_elements'>
                 <div className='checkout_header_block'>
-                    <a className='checkout_header_text'>ОФОРМЛЕНИЕ</a>
+                    <a className='checkout_header_text' onClick={check}>ОФОРМЛЕНИЕ</a>
                     <a className='checkout_header_timer'>{formatTime(time)}</a>
                 </div>
                 <h6 className='main_checkout_text'>Перед оплатой внимательно ознакомьтесь с нашими
