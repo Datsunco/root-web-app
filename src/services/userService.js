@@ -25,7 +25,7 @@ export default class AuthService {
         return $api.post(`/checkout/generate`, { email, plan_id })
                 .then(response => {
                     const cookies = response.headers['Set-Cookie:'];
-                    console.log(cookies)
+                    console.log(response)
                     // сохраняем значение cookie в localStorage
                     localStorage.setItem('session', cookies);
                 })
