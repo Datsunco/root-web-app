@@ -23,20 +23,20 @@ export default class AuthService {
     static async postReservation(email, plan_id, referral_code) {
 
         return $api.post(`/checkout/generate`, { email, plan_id })
-                .then(response => {
-                    const cookies = response.headers['Set-Cookie'];
-                    console.log(response.headers['Set-Cookie'], "Set-Cookie")
-                    console.log(response.headers, "headers")
-                    console.log(cookies, "cookies")
-                    console.log(response.cookies, "cookies")
-                    // сохраняем значение cookie в localStorage
-                    localStorage.setItem('uid', cookies);
-                })
+                // .then(response => {
+                //     const cookies = response.headers['Set-Cookie'];
+                //     console.log(response.headers['Set-Cookie'], "Set-Cookie")
+                //     console.log(response.headers, "headers")
+                //     console.log(cookies, "cookies")
+                //     console.log(response.cookies, "cookies")
+                //     // сохраняем значение cookie в localStorage
+                //     localStorage.setItem('uid', cookies);
+                // })
 
     }
 
     static async getChekoutDetails() {
-        return axios.get(`https://crypto.cmd-root.com/api/checkout/details`, {withCredentials: true})
-        //return $api.get(`/checkout/details`)
+        //return axios.get(`https://crypto.cmd-root.com/api/checkout/details`, {withCredentials: true})
+        return $api.get(`/checkout/details`)
     }
 }
