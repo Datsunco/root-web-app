@@ -176,7 +176,7 @@ export default class Store {
     }
 
     setPaymentTokens(tokens){
-        this.tokens = this.plans = tokens?.data?.result?.dataList
+        this.tokens = this.plans = tokens?.data
     }
 
     async getReferalCode() {
@@ -208,7 +208,7 @@ export default class Store {
 
     async getPaymentTokens() {
         try {
-            const response = await userService.getSubscriptionsPlan();
+            const response = await userService.getPaymentTokens();
             this.setPaymentTokens(response)
         } catch (e) {
             console.log(e.response?.data?.message);
@@ -221,6 +221,15 @@ export default class Store {
             const response = await userService.postReservation(String(email), this.userPlan.id, String(this.referal));
             console.log(response)
             localStorage.setItem('token', response.data.accessToken);
+        } catch (e) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
+    async getChekoutDetails(email) {
+        try {
+            const response = await userService.getChekoutDetails(String(email), this.userPlan.id, String(this.referal));
+            console.log(response)
         } catch (e) {
             console.log(e.response?.data?.message);
         }

@@ -32,6 +32,8 @@ const PaymentPage = () => {
     };
 
     useEffect(() => {
+        store.getPaymentTokens()
+        store.getChekoutDetails()
         const countdown = setInterval(() => {
             if (time > 0) {
                 setTime(time - 1);

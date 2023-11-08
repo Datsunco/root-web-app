@@ -13,17 +13,20 @@ const LoginPage = () => {
 
     const mainButtonClicked = () => {
         store.postReservation(tg?.initDataUnsafe?.user?.id)
-        if (localStorage.getItem('token')) {
+        if (localStorage.getItem('token') != null) {
             navigate('/checkout')
+            console.log('test0')
         }
     }
 
     useEffect(() => {
         tg.MainButton.setParams({ text: 'Перейти к оплате', color: '#AA1A17', is_visible: true, is_active: true })
         tg.onEvent('mainButtonClicked', mainButtonClicked)
-        if (localStorage.getItem('token')) {
-            navigate('/checkout')
+        if (localStorage.getItem('token')) { //тест на переход с главной на чеаут
+        //     navigate('/checkout')
+            console.log('test0')
         }
+        console.log('test1')
 
         return () => {
             tg.offEvent('mainButtonClicked', mainButtonClicked)
