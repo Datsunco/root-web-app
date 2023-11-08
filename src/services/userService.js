@@ -22,13 +22,13 @@ export default class AuthService{
 
     static async postReservation(email, plan_id, referral_code){
 
-        return $api.post(`https://crypto.cmd-root.com/api/checkout/generate`, { email, plan_id})
+        return $api.post(`/checkout/generate`, { email, plan_id})
         
     }
 
     static async getChekoutDetails(){
 
-        return $api.get(`https://crypto.cmd-root.com/api/checkout/generate`)
+        return $api.get(`/checkout/details`)
         
     }
 }
