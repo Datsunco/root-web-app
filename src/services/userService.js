@@ -4,8 +4,8 @@ import axios from "axios";
 export default class AuthService {
 
     static async getSubscriptionsPlan() {
-        return $api.get(`/plans/usd-crypto/initial/available`)
-        //return axios.get('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available')
+        //return $api.get(`/plans/usd-crypto/initial/available`)
+        return axios.get('https://crypto.cmd-root.com/api/plans/usd-crypto/initial/available')
 
     }
 
@@ -35,8 +35,7 @@ export default class AuthService {
     }
 
     static async getChekoutDetails() {
-
-        return $api.get(`/checkout/details`)
-
+        return axios.get(`https://crypto.cmd-root.com/api/checkout/details`, {withCredentials: true})
+        //return $api.get(`/checkout/details`)
     }
 }
