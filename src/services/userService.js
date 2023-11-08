@@ -23,12 +23,13 @@ export default class AuthService {
     static async postReservation(email, plan_id, referral_code) {
 
         return $api.post(`/checkout/generate`, { email, plan_id })
-                .then(response => {
-                    const cookies = response.headers['Set-Cookie:'];
-                    console.log(response)
-                    // сохраняем значение cookie в localStorage
-                    localStorage.setItem('session', cookies);
-                })
+                // .then(response => {
+                //     const cookies = response.headers['Set-Cookie:'];
+                //     console.log(cookies, "cookies")
+                //     console.log(response.cookies, "cookies")
+                //     // сохраняем значение cookie в localStorage
+                //     localStorage.setItem('session', cookies);
+                // })
 
     }
 
