@@ -12,7 +12,7 @@ const LoginPage = () => {
     const tg = window.Telegram.WebApp;
 
     const mainButtonClicked = () => {
-        store.postReservation(tg?.initDataUnsafe?.user?.id)
+        store.postReservation("736466798")
         // if (localStorage.getItem('checkout-uid')) {
             //navigate('/checkout')
             console.log('test0')
