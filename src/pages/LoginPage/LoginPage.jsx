@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const mainButtonClicked = () => {
         store.postReservation(tg?.initDataUnsafe?.user?.id)
-        store.getChekoutDetails()
+        //store.getChekoutDetails()
         // if (localStorage.getItem('checkout-uid')) {
             navigate('/checkout')
             console.log('test0')

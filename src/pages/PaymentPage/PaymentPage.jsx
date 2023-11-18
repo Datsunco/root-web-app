@@ -21,6 +21,7 @@ const PaymentPage = () => {
     const [copySuccess, setCopySuccess] = useState(false);
 
     const mainButtonClicked = () => {
+        store.getChekoutDetails()
         tg.MainButton.hide()
         navigate('/result')
     }
